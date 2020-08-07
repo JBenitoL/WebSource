@@ -28,10 +28,10 @@ const router = new Router({
                 component: () => import('../views/Research/index.vue'),
             },
             {
-                path: '/personal',
-                name: 'personal',
+                path: '/portfolio',
+                name: 'portfolio',
                 //component: () => import('../views/personal.vue'),
-                component: () => import('../views/Personal/index.vue'),
+                component: () => import('../views/Portfolio/index.vue'),
             },
             {
                 path: '/contact',

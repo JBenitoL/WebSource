@@ -2,10 +2,21 @@
   <div>
     <q-page class="q-pa-md q-pt-xl">
       <a href="https://www.linkedin.com/in/jbenitollorens/">
-        <q-img :src="require('@/Imagenes/LinkedinLogo.png')" style=" max-width: 5%" class="center" />
+        <q-img
+          :src="require('@/Imagenes/LinkedinLogo.png')"
+          style=" max-width: 15%"
+          class="center"
+        />
         <q-tooltip>My Linkedin</q-tooltip>
       </a>
-      <q-input outlined v-model="mail" id="email" label="Your email" class="q-mt-xl">
+      <q-input
+        outlined
+        v-model="mail"
+        id="email"
+        class="q-mt-xl"
+        label="Your email"
+        style="width:300px"
+      >
         <template v-slot:prepend>
           <q-icon name="mail" />
         </template>
@@ -124,10 +135,4 @@ export default {
 </script>
 
 <style>
-.center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
-}
 </style>

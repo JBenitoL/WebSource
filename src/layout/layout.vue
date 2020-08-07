@@ -93,8 +93,8 @@ export default {
       optionTabs: [
         { label: "About", value: "about" },
         { label: "Curriculum", value: "curriculum" },
+        { label: "Portfolio", value: "portfolio" },
         { label: "Research", value: "research" },
-        { label: "Personal", value: "personal" },
         { label: "Contact", value: "contact" },
       ],
       drawer: false,
