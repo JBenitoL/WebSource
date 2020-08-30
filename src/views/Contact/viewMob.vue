@@ -38,7 +38,8 @@
           class="justify-center"
           color="black"
           icon-right="send"
-          label="Send"
+          :label="labelButton"
+          :disabled="!mail || !subject || !text || disable"
           @click="sendMail"
         />
       </div>
@@ -54,6 +55,8 @@ export default {
       mail: "",
       text: "",
       subject: "",
+      disable: false,
+      labelButton: "Send",
     };
   },
   methods: {
@@ -62,6 +65,11 @@ export default {
       let subject = this.subject;
       let message = this.text;
       let email = this.mail;
+      if (subject.length === 0 || message.length === 0 || email.length === 0) {
+        alert("Please, fill all the fields");
+        return;
+      }
+      console.log(subject);
       console.log(subject);
       console.log(message);
       // Creating a XHR object
@@ -90,45 +98,18 @@ export default {
         Subject: subject,
         emailTo: email,
       });
-      // const data = {
-      //   message: message,
-      //   Subject: subject,
-      //   emailTo: email,
-      // };
-      // const data = {
-      //   message: `${message}`,
-      //   Subject: `${subject}`,
-      //   emailTo: `${email}`,
-      // };
+
       console.log(`message=${message}&Subject=${subject}&emailTo=${email}`);
-      // data = data
-      //   .replace('"', "'")
-      //   .replace('"', "'")
-      //   .replace('"', "'")
-      //   .replace('"', "'")
-      //   .replace('"', "'")
-      //   .replace('"', "'")
-      //   .replace('"', "'")
-      //   .replace('"', "'")
-      //   .replace('"', "'")
-      //   .replace('"', "'")
-      //   .replace('"', "'")
-      //   .replace('"', "'");
 
-      // var data = cassandraMAP.stringify({
-      //   message: message,
-      //   Subject: subject,
-      //   emailTo: email,
-      // });
-      // var data =
-      //   "message: " + message + ", Subject: " + subject + ", emailTo: " + email;
-
-      // console.log(data);
       console.log(4);
-      // Sending data with the request
-      // xhr.send(`message=${message}&Subject=${subject}&emailTo=${email}`);
+
       xhr.send(data);
-      console.log(5);
+      console.log(6);
+      this.mail = "";
+      this.subject = "";
+      this.text = "";
+      this.disable = true;
+      this.labelButton = "Submitted";
     },
   },
 };

@@ -27,7 +27,8 @@
           class="justify-center"
           color="black"
           icon-right="send"
-          label="Send"
+          :label="labelButton"
+          :disabled="!mail || !subject || !text || disable"
           @click="sendMail"
         />
       </div>
@@ -43,25 +44,27 @@ export default {
       mail: "",
       text: "",
       subject: "",
+      disable: false,
+      labelButton: "Send",
     };
   },
   methods: {
     sendMail() {
-      console.log("898");
       let subject = this.subject;
       let message = this.text;
       let email = this.mail;
-      console.log(subject);
-      console.log(message);
+      if (subject.length === 0 || message.length === 0 || email.length === 0) {
+        alert("Please, fill all the fields");
+        return;
+      }
       // Creating a XHR object
       let xhr = new XMLHttpRequest();
       let url =
         "https://frpuocxxql.execute-api.eu-west-3.amazonaws.com/dev/users/create";
 
       // open a connection
-      console.log(0);
+
       xhr.open("POST", url, true);
-      console.log(2);
       // Set the request header i.e. which type of content you are sending
       xhr.setRequestHeader("Content-Type", "application/json");
 
@@ -69,55 +72,29 @@ export default {
       xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
           // Print received data from server
-          // result.innerHTML = this.responseText;
         }
       };
-      console.log(3);
       // Converting JSON data to string
       var data = JSON.stringify({
         message: message,
         Subject: subject,
         emailTo: email,
       });
-      // const data = {
-      //   message: message,
-      //   Subject: subject,
-      //   emailTo: email,
-      // };
-      // const data = {
-      //   message: `${message}`,
-      //   Subject: `${subject}`,
-      //   emailTo: `${email}`,
-      // };
+
       console.log(`message=${message}&Subject=${subject}&emailTo=${email}`);
-      // data = data
-      //   .replace('"', "'")
-      //   .replace('"', "'")
-      //   .replace('"', "'")
-      //   .replace('"', "'")
-      //   .replace('"', "'")
-      //   .replace('"', "'")
-      //   .replace('"', "'")
-      //   .replace('"', "'")
-      //   .replace('"', "'")
-      //   .replace('"', "'")
-      //   .replace('"', "'")
-      //   .replace('"', "'");
 
-      // var data = cassandraMAP.stringify({
-      //   message: message,
-      //   Subject: subject,
-      //   emailTo: email,
-      // });
-      // var data =
-      //   "message: " + message + ", Subject: " + subject + ", emailTo: " + email;
+      this.mail = "";
 
-      // console.log(data);
-      console.log(4);
       // Sending data with the request
-      // xhr.send(`message=${message}&Subject=${subject}&emailTo=${email}`);
+
       xhr.send(data);
-      console.log(5);
+
+      this.mail = "";
+      this.subject = "";
+      this.text = "";
+
+      this.disable = true;
+      this.labelButton = "Submitted";
     },
   },
 };

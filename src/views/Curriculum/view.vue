@@ -1,14 +1,28 @@
 <template>
-  <div>
+  <div v-if="render">
     <q-page class="q-pa-xl q-pt-xl">
+      <div class="q-mb-md">
+        <a href="https://www.linkedin.com/in/jbenitollorens/">
+          <q-img
+            :src="require('@/Imagenes/LinkedinLogo.png')"
+            style=" max-width: 3%"
+            class="center"
+          />
+          <q-tooltip>My Linkedin</q-tooltip>
+        </a>
+      </div>
+      <div class="row justify-center">
+        <q-separator color="grey-9" style="width:100px" />
+      </div>
+
       <section>
-        <div class="row">
+        <div class="row q-mt-lg">
           <div class="col-3 q-pr-xl text-right">
             <h5 class="q-pa-none q-my-none text-weight-regular">Profile</h5>
           </div>
           <div class="col-1"></div>
           <div class="col-4">
-            As an experimental PhD in physics, one of the most important aspects was data analysis. I really enjoyed how we can
+            As an experimental PhD in Physics, one of the most important aspects was data analysis. I really enjoyed how we can
             obtain results and conclusions from raw data. I am open to learn new things concerning coding, statistics or math.
           </div>
         </div>
@@ -34,9 +48,9 @@
           <div class="col-1"></div>
           <div class="col-4">
             <ul style=" padding-left: 20px; margin-top: 0">
-              <li>Design and built a device from scratch. Mechanics, electronics and computer communications.</li>
+              <li>Design and built a device from scratch. Mechanics, electronics and computer communications</li>
               <p />
-              <li>Development of a full software to manage, clean and analyze raw experimental data.</li>
+              <li>Development of a full software to manage, clean and analyze raw experimental data</li>
               <p />
               <li>Presentation of results at international conferences and high impact scientific journals</li>
             </ul>
@@ -62,7 +76,7 @@
           <div class="col-1"></div>
           <div class="col-4">
             PhD cum laude in Condensed Matter Physics and Nanotechnology:
-            Vortex lattices under Pressure.
+            Vortex Lattices under Stress.
           </div>
         </div>
         <p></p>
@@ -143,10 +157,9 @@
           <div class="col-1"></div>
           <div class="col-4">
             <ul class="q-my-none" style="padding-left: 20px;">
-              <li>Intro to Machine Learning - Kaggle</li>
               <li>Intermediate Machine Learning - Kaggle</li>
-              <li>Feature Engeneering - Kaggle</li>
-              <li>Machine Learning: Data science en Python - Udemy</li>
+              <li>Feature Engineering - Kaggle</li>
+              <li>Machine Learning: Data Science en Python - Udemy</li>
               <li>Machine Learning - Coursera</li>
             </ul>
           </div>
@@ -157,7 +170,7 @@
           <div class="col-1"></div>
           <div class="col-4">
             <ul class="q-my-none" style="padding-left: 20px;">
-              <li>Functional programming principles in scala - Coursera</li>
+              <li>Functional Programming Principles in Scala - Coursera</li>
               <li>Big Data Analysis with Scala and Spark - Coursera</li>
             </ul>
           </div>
@@ -180,7 +193,7 @@
           <div class="col-1"></div>
           <div class="col-4">
             <ul class="q-my-none" style="padding-left: 20px;">
-              <li>Natural language processing- Kaggle</li>
+              <li>Natural Language Processing - Kaggle</li>
             </ul>
           </div>
         </div>
@@ -196,7 +209,7 @@
           <div class="col-1"></div>
           <div class="col-3">
             <ul class="q-my-sm" style="padding-left: 20px;">
-              <li>¿Quieres ser un data scientist?, organized by IMMUNE. 2nd prize inits DATATHON</li>
+              <li>¿Quieres ser un data scientist? organized by IMMUNE. 2nd prize inits DATATHON</li>
               <li>AWS Summit Online</li>
             </ul>
           </div>
@@ -218,9 +231,17 @@
 <script>
 export default {
   name: "about",
+  data() {
+    return {
+      render: false,
+    };
+  },
+  mounted() {
+    this.render = true;
+  },
   methods: {
     downloadPDF() {
-      console.log(2);
+      // console.log(2);
       //var link = document.createElement('a');
       //window.location.href = "Curriculum.pdf"
       //window.open('https://www.eldiario.es/');

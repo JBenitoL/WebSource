@@ -6,6 +6,7 @@ import Layout from '../layout/layout.vue';
 Vue.use(Router);
 
 const router = new Router({
+ 
     routes: [{
         path: '/',
         component: Layout,
@@ -41,6 +42,8 @@ const router = new Router({
             }
 
         ]
-    }]
+    }],
+    mode: 'history',
+ 
 });
 export default router;

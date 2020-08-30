@@ -4,15 +4,9 @@
       <!-- Introduccion -->
       <section>
         <p>
-          After almost 5 years of research, I defended my thesis on January 2020. The title of the manuscript is
-          "Vortex Lattices under stress: Visualizing the superconducting vortex lattice
-          in presence of disorder and magnetism" supervised by H. Suderow and I. Guillamón at the low temperatures
-          laboratory of the Universidad Autonoma de Madrid.
-        </p>
-
-        <p>
-          Here, I will make a brief resume of my project and a list of the publications during my research time. If you are
-          interested on the whole manuscript, click the cover image to download a copy
+          After almost 5 years of research, I defended my thesis on January 2020.
+          Here, I will make a brief summary of my project and a list of the publications during my research time. If you are
+          interested on the whole manuscript, click the cover image to download a copy.
         </p>
 
         <a href="http://webs.fmc.uam.es/lbtuam.group/TesisJBLLOficial.pdf">
@@ -20,7 +14,19 @@
           <q-tooltip>Download manuscript</q-tooltip>
         </a>
       </section>
-
+      <p class="q-mt-xl">
+        The title of the manuscript is
+        "Vortex lattices under stress: Visualizing the superconducting vortex lattice
+        in presence of disorder and magnetism" supervised by H. Suderow and I. Guillamón at the
+        <a
+          href="http://webs.fmc.uam.es/lbtuam.group/"
+          style="text-decoration: none"
+        >
+          Low Temperatures
+          Laboratory
+        </a>
+        of the Universidad Autonoma de Madrid.
+      </p>
       <section>
         <h4 class="q-mt-xl q-mb-md text-center text-weight-regular">Thesis project</h4>
       </section>
@@ -28,7 +34,7 @@
       <section>
         <h6 class="q-my-sm text-weight-regular">Introduction to superconductivity</h6>
         <p>
-          After more than 100 years of its discovery, superconductivity is still a very promising and current phenomena. Superconductors
+          More than 100 years after its discovery, superconductivity is still a very promising and current phenomena. Superconductors
           materials have two main properties:
         </p>
         <ul>
@@ -51,7 +57,7 @@
         </div>
 
         <p>
-          If any of these quantities are above of a critical value, superconducting state dissapears and the material goes
+          If any of these quantities are above a critical value, the superconducting state dissapears and the material goes
           to normal state.
         </p>
       </section>
@@ -80,16 +86,16 @@
           >
             in high critical temperature superconductors (HCTS) the origin
             remains unknown.
-          </strong> What we do know, is that as opposed
-          of conventional superconductors, superconductivity and magnetism are very related. Comprehending this relation is
+          </strong> What we do know is that, as opposed
+          to conventional superconductors, superconductivity and magnetism are very related. Comprehending this relation is
           fundamental to understand the origin of the superconductivity in HCTS.
         </p>
 
         <p>
           <strong
             class="text-weight-medium"
-          >The problem of increasing critical current is related with the superconducting vortices</strong>.
-          When an electrical current is applied, vortices move along the sample dissipating heat and this, eventually
+          >The problem of increasing critical current is related to the superconducting vortices</strong>.
+          When an electrical current is applied, vortices move along the sample dissipating heat and this eventually
           destroys superconductivity. Hence,
           <strong
             class="text-weight-medium"
@@ -123,17 +129,15 @@
             <q-carousel-slide :name="2" :img-src="require('./Images/atoms.jpg')">
               <div class="absolute-bottom custom-caption">
                 <div class="text-subtitle1 text-center">
-                  Atomic resolution image at left and superconducting
-                  vortices (yellow) at the right.
+                  Atomic resolution image in the left and superconducting
+                  vortices (yellow) in the right
                 </div>
               </div>
             </q-carousel-slide>
 
             <q-carousel-slide :name="3" :img-src="require('./Images/STM.jpg')">
               <div class="absolute-bottom custom-caption">
-                <div
-                  class="text-subtitle1 text-center"
-                >A picture of the scanning tunneling microscope I buildt.</div>
+                <div class="text-subtitle1 text-center">The scanning tunneling microscope I built</div>
               </div>
             </q-carousel-slide>
           </q-carousel>
@@ -159,17 +163,15 @@
             <q-carousel-slide :name="2" :img-src="require('./Images/atoms.jpg')">
               <div class="absolute-bottom custom-caption">
                 <div class="text-subtitle1 text-center">
-                  Atomic resolution image at left and superconducting
-                  vortices (yellow) at the right.
+                  Atomic resolution image in the left and superconducting
+                  vortices (yellow) in the right
                 </div>
               </div>
             </q-carousel-slide>
 
             <q-carousel-slide :name="3" :img-src="require('./Images/STM.jpg')">
               <div class="absolute-bottom custom-caption">
-                <div
-                  class="text-subtitle1 text-center"
-                >A picture of the scanning tunneling microscope I buildt.</div>
+                <div class="text-subtitle1 text-center">The scanning tunneling microscope I built</div>
               </div>
             </q-carousel-slide>
           </q-carousel>
@@ -204,8 +206,7 @@
             I developed a scanning tunneling microscope from scratch to perform at low temperatures
             (~150 mK) and high magnetic
             fields (~15 T)
-          </strong>. This microscope was invented in 1981 and allows us to obtain topographic images at the atomic level and
-          also, the
+          </strong>. This microscope was invented in 1981 and allows us to obtain topographic images at the atomic level, as well as the
           electronical properties of the material we are measuring. For example, we can obtain vortex images by measuring the electronic
           properties locally. I designed and built the microscope and also help in the development of
           the mechanical apparatus, electronics and computer comunications required to perform the experiments.
@@ -213,22 +214,24 @@
         <p>
           <strong
             class="text-weight-medium"
-          >Another very important part in my thesis is the data analysis.</strong>
-          With the microscope I obtained files of several Gb per
-          measurement. So, in order to do faster analysis, I developed a software in Matlab. We
+          >Another very important part of my thesis was the data analysis.</strong>
+          With the microscope, I obtained files of several Gb per
+          measurement. Thus, in order to do faster analysis, I developed a software in Matlab. We
           are able to open, manage and clean raw data from the microscope in seconds/minutes.
-          Most of the funcionalities are for image analysis. Some of them are:
+          Most of the funcionalities are for image analysis, For example:
         </p>
         <ul>
-          <li>2D-Fast fourier transformations and filterings.</li>
+          <li>
+            2D-Fast fourier transformations and filteringsli>
+            <p />
+          </li>
+          <li>Automatic vortex detection in images</li>
           <p />
-          <li>Automatic vortex detection in images.</li>
+          <li>Analysis of vortex movement in movies</li>
           <p />
-          <li>Analysis of vortex movement in movies.</li>
+          <li>Fractal analysis</li>
           <p />
-          <li>Fractal analysis.</li>
-          <p />
-          <li>Hyperuniform detection in real and reciprocal space.</li>
+          <li>Hyperuniform detection in real and reciprocal space</li>
           <p />
         </ul>
       </section>
@@ -271,7 +274,7 @@
         <ul class="q-pa-none q-my-none" style="list-style-type:none; text-align: justify;">
           <li>
             <p
-              class="text-weight-medium text-center q-mb-none"
+              class="text-weight-medium q-mb-none"
             >Superconducting density of states and vortex lattice in the spin-vortex state of Ni-doped</p>
             <p class="text-grey-9 text-weight-regular q-mb-none">
               J. Benito-Llorens
@@ -282,10 +285,10 @@
           </li>
           <li>
             <p
-              class="text-weight-medium text-center q-mb-none"
+              class="text-weight-medium q-mb-none"
             >Superconductivity in a disordered metal with Coulomb interactions</p>
             <p class="text-grey-9 text-weight-regular q-mb-none">
-              Svetlana V. Postolova,1 Alexey Yu. Mironov, Víctor Barrena,
+              Svetlana V. Postolova, Alexey Yu. Mironov, Víctor Barrena,
               Jose Benito-Llorens,Jose Gabriel Rodrigo, Hermann Suderow, Mikhail R. Baklanov, Tatyana I. Baturina, and Valerii M. Vinokur
             </p>
             <p class="text-weight-regular text-center">Accepted in Phys. Rev. Research, (2020)</p>
@@ -293,19 +296,24 @@
           <p class="q-mb-lg" />
           <li>
             <p
-              class="text-weight-medium text-center q-mb-none"
+              class="text-weight-medium q-mb-none"
             >Disordered hyperuniformity in superconducting vortex lattices</p>
             <p class="text-grey-9 text-weight-regular q-mb-none">
               J. Benito-Llorens
               , R. Córdoba, J.M. De Teresa, R. Ibarra, S. Vieira, I.
               Guillamón, M. Ortuño, and H. Suderow
             </p>
-            <p class="text-weight-regular text-center">Phys. Rev. Research 2, 013329, (2020)</p>
+            <p class="text-weight-regular text-center">
+              <a
+                href="https://journals.aps.org/prresearch/abstract/10.1103/PhysRevResearch.2.013329"
+                style="text-decoration: none"
+              >Phys. Rev. Research 2, 013329, (2020)</a>
+            </p>
           </li>
           <p class="q-mb-lg" />
           <li>
             <p
-              class="text-weight-medium text-center q-mb-none"
+              class="text-weight-medium q-mb-none"
             >Observation of a gel of quantum vortices in a superconductor at very low magnetic fields</p>
             <p class="text-grey-9 text-weight-regular q-mb-none">
               J. Benito-Llorens
@@ -315,36 +323,47 @@
               Sánchez, Yanina Fasano, Milorad V. Milosevic, Hermann Suderow, Yonathan
               Anahory
             </p>
-            <p class="text-weight-regular text-center">Phys. Rev. Research 2, 013329, (2020)</p>
+            <p class="text-weight-regular text-center">
+              <a
+                href="https://journals.aps.org/prresearch/abstract/10.1103/PhysRevResearch.2.013329"
+                style="text-decoration: none"
+              >Phys. Rev. Research 2, 013329, (2020)</a>
+            </p>
           </li>
           <p class="q-mb-lg" />
           <li>
             <p
-              class="text-weight-medium text-center q-mb-none"
+              class="text-weight-medium q-mb-none"
             >Thermal creep induced by cooling a superconducting vortex lattice</p>
             <p class="text-grey-9 text-weight-regular q-mb-none">
               R. Willa and J.A. Galvis,
               J. Benito-Llorens, E. Herrera, I. Guillamon
               and H. Suderow
             </p>
-            <p class="text-weight-regular text-center">Phys. Rev. Research 2, 013125 (2020)</p>
+            <p class="text-weight-regular text-center">
+              <a
+                href="https://journals.aps.org/prresearch/abstract/10.1103/PhysRevResearch.2.013125"
+                style="text-decoration: none"
+              >Phys. Rev. Research 2, 013125 (2020)</a>
+            </p>
           </li>
           <p class="q-mb-lg" />
 
           <li>
-            <p class="text-weight-medium text-center q-mb-none">
+            <p class="text-weight-medium q-mb-none">
               Vortex creep at very low temperatures in single crystals of the extreme type-II superconductor
-              Rh
-              <sub>9</sub>In
-              <sub>4</sub>S
-              <sub>4</sub>
-            </p>
-            <p class="text-grey-9 text-weight-regular q-mb-none">
+              Rh<sub>9</sub>In<sub>4</sub>S<sub>4</sub></p>
+              <p class="text-grey-9 text-weight-regular q-mb-none">
               E. Herrera-Vasco,
               J. Benito-Llorens, Udhara S. Kaluarachchi, S.L.
               Bud’ko, P. C. Canfield, I. Guillamón, H. Suderow
             </p>
-            <p class="text-weight-regular text-center">Phys. Rev. B 95, 134505 (2017)</p>
+            <p class="text-weight-regular text-center">
+              <a
+                href="https://journals.aps.org/prb/abstract/10.1103/PhysRevB.95.134505"
+                style="text-decoration: none"
+              >Phys. Rev. B 95, 134505 (2017)</a>
+            </p>
           </li>
         </ul>
         <p class="q-mb-lg" />

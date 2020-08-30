@@ -89,6 +89,7 @@ export default {
 
   data() {
     return {
+      
       tabs: this.$router.currentRoute.name,
       optionTabs: [
         { label: "About", value: "about" },
@@ -104,6 +105,7 @@ export default {
     goTo(tab) {
       if (tab !== this.$router.currentRoute.name)
         this.$router.push({ name: tab });
+         
     },
   },
 };
