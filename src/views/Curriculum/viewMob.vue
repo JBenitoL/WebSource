@@ -1,181 +1,144 @@
 <template>
   <div class="q-pa-md q-pt-xl">
     <div class="q-mb-lg q-mt-md">
-      <a href="https://www.linkedin.com/in/jbenitollorens/">
-        <q-img
-          :src="require('@/Imagenes/LinkedinLogo.png')"
-          style=" max-width: 10%"
-          class="center"
-        />
+      <q-img
+        :src="require('@/imagenes/LinkedinLogo.png')"
+        style=" max-width: 10%"
+        class="center"
+        @click="goToLinkedin"
+      >
         <q-tooltip>My Linkedin</q-tooltip>
-      </a>
+      </q-img>
     </div>
+
     <div class="row justify-center">
       <q-separator color="grey-9" style="width:100px" />
     </div>
-    <section>
-      <!-- <h5 class="q-pa-none q-my-md text-center text-weight-medium">  Profile  </h5> -->
 
+    <section>
       <div class="text-center">
         <q-icon name="person" size="md" class="q-py-md" />
-      </div>As an experimental PhD in Physics, one of the most important aspects was data analysis. I really enjoyed how we can
-      obtain results and conclusions from raw data. I am open to learn new things concerning coding, statistics or math.
+      </div>
+      {{ profile }}
       <p />
     </section>
+
     <q-separator color="grey-9" />
 
     <section>
       <div class="text-center">
         <q-icon name="work" size="md" class="q-py-xs" />
       </div>
-
-      <h6
-        class="q-pa-none q-my-sm text-weight-medium"
-      >Researcher at U. Autonoma de Madrid (2015-2019)</h6>
-
+      <h6 class="q-pa-none q-my-sm text-weight-medium">{{ experienceUAMTitleMob }}</h6>
       <ul style=" padding-left: 20px; margin-top: 0">
-        <li>Design and built a device from scratch. Mechanics, electronics and computer communications</li>
-        <p />
-        <li>Development of a full software to manage, clean and analyze raw experimental data</li>
-        <p />
-        <li>Presentation of results at international conferences and high impact scientific journals</li>
+        <li v-for="item in experienceUAM" :key="item">
+          {{ item }}
+          <p />
+        </li>
       </ul>
     </section>
 
     <q-separator color="grey-9" />
 
     <section>
-      <!-- <h5 class="q-pa-none q-my-md text-center">  Education  </h5> -->
       <div class="text-center">
         <q-icon name="school" size="md" class="q-py-xs" />
       </div>
-
       <h6 class="q-pa-none q-my-sm">Universidad Autonoma de Madrid</h6>
-
       <ul style=" padding-left: 20px; margin-top: 0">
-        <li>
-          PhD cum laude in Condensed Matter Physics and Nanotechnology:
-          Vortex Lattices under Stress. (2015 - 2019)
+        <li v-for="item in education" :key="item.fecha">
+          {{ `${item.texto} (${item.fecha})` }}
+          <p />
         </li>
-        <p />
-        <li>Master’s degree in Condensed Matter Physics and Nanotechnology. (2014 - 2015)</li>
-        <p />
-        <li>5 year degree in Physics. (2008-2013)</li>
       </ul>
     </section>
 
     <q-separator color="grey-9" />
 
     <section>
-      <!-- <h5 class="q-pa-none q-my-md text-center">  Skills </h5> -->
       <div class="text-center">
         <q-icon name="build" size="md" class="q-py-xs" />
       </div>
-
       <ul class="q-my-sm" style=" padding-left: 20px;">
-        <li>Python</li>
-        <li>Matlab</li>
-        <li>SQL</li>
-        <li>HTML, CSS, Javascript</li>
-
-        <li>Git, Github</li>
-        <li>AWS</li>
-        <li>Spark (scala)</li>
+        <li v-for="item in skillsCol1" :key="item">{{ item }}</li>
+        <li v-for="item in skillsCol2" :key="item">{{ item }}</li>
       </ul>
     </section>
 
     <q-separator color="grey-9" />
 
     <section>
-      <!-- <h5 class="q-pa-none q-my-md text-center">  Languages  </h5> -->
       <div class="text-center">
         <q-icon name="language" size="md" class="q-py-xs" />
       </div>
-
       <ul class="q-my-sm" style="padding-left: 20px;">
-        <li>Spanish: Native</li>
-        <li>English: C1</li>
-        <li>German: A1</li>
+        <li v-for="item in languages" :key="item">{{ item }}</li>
       </ul>
     </section>
 
     <q-separator color="grey-9" />
 
     <section>
-      <!-- <h5 class="q-pa-none q-my-md text-center">  Courses  </h5> -->
       <div class="text-center">
         <q-icon name="edit" size="md" class="q-py-xs" />
       </div>
-
       <h6 class="q-pa-none q-my-sm text-weight-bold">Machine Learning</h6>
-
       <ul class="q-my-none" style="padding-left: 20px;">
-        <li>Intermediate Machine Learning - Kaggle</li>
-        <li>Feature Engineering - Kaggle</li>
-        <li>Machine Learning: Data Science en Python - Udemy</li>
-        <li>Machine Learning - Coursera</li>
+        <li v-for="item in coursesML" :key="item">{{ item }}</li>
       </ul>
-
-      <p></p>
-
+      <p />
       <h6 class="q-pa-none q-my-sm text-weight-bold">Scala</h6>
-
       <ul class="q-my-none" style="padding-left: 20px;">
-        <li>Functional Programming Principles in Scala - Coursera</li>
-        <li>Big Data Analysis with Scala and Spark - Coursera</li>
+        <li v-for="item in coursesScala" :key="item">{{ item }}</li>
       </ul>
-
       <p />
-
       <h6 class="q-pa-none q-my-sm text-weight-bold">SQL</h6>
-
       <ul class="q-my-none" style="padding-left: 20px;">
-        <li>Intro to SQL - Kaggle</li>
+        <li v-for="item in coursesSQL" :key="item">{{ item }}</li>
       </ul>
-
       <p />
-
       <h6 class="q-pa-none q-my-sm text-weight-bold">NLP</h6>
-
       <ul class="q-my-none" style="padding-left: 20px;">
-        <li>Natural Language Processing - Kaggle</li>
+        <li v-for="item in coursesNLP" :key="item">{{ item }}</li>
       </ul>
-
       <p />
     </section>
 
     <q-separator color="grey-9" />
+
     <section>
-      <!-- <h5 class="q-pa-none q-my-md text-center">  Conferences </h5> -->
       <div class="text-center">
         <q-icon name="hearing" size="md" class="q-py-xs" />
       </div>
-
       <ul class="q-my-sm" style="padding-left: 20px;">
-        <li>¿Quieres ser un data scientist? organized by IMMUNE. 2nd prize inits DATATHON</li>
-        <li>AWS Summit Online</li>
+        <li v-for="item in conferences" :key="item">{{ item }}</li>
       </ul>
     </section>
 
     <q-space />
-    <h1></h1>
+    <h1 />
     <q-page-sticky position="bottom-right" :offset="[50, 50]">
       <q-btn fab icon="get_app" color="grey-9" text-color="yellow-14" @click="downlaodPDF">
         <q-tooltip>Download in pdf</q-tooltip>
       </q-btn>
     </q-page-sticky>
-
-    <!-- <q-img :src="require('@/Imagenes/cover5.png')" style=" max-width: 50%" class="center" /> -->
   </div>
 </template>
 
 <script>
+import links from "../links";
+import texts from "./texts";
+
 export default {
   name: "about",
+  mixins: [links, texts],
   methods: {
-    downlaodPDF() {window.open(
-        "https://web-jbll.s3.eu-west-3.amazonaws.com/Curriculum_JBLL.pdf"
-      );},
+    goToLinkedin() {
+      window.open(this.linkedinLink);
+    },
+    downlaodPDF() {
+      window.open(this.cvLink);
+    },
   },
 };
 </script>

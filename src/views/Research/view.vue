@@ -3,367 +3,175 @@
     <q-page class="q-pa-md q-pt-xl" style=" text-align: left;">
       <!-- Introduccion -->
       <section>
-        <p>
-          After almost 5 years of research, I defended my thesis on January 2020.
-          Here, I will make a brief summary of my project and a list of the publications during my research time. If you are
-          interested on the whole manuscript, click the cover image to download a copy.
-        </p>
+        <p>{{ intro[0] }}</p>
 
-        <a href="http://webs.fmc.uam.es/lbtuam.group/TesisJBLLOficial.pdf">
-          <q-img :src="require('@/Imagenes/Tesis.png')" style=" max-width: 30%" class="center" />
-          <q-tooltip>Download manuscript</q-tooltip>
-        </a>
-      </section>
-      <p class="q-mt-xl">
-        The title of the manuscript is
-        "Vortex lattices under stress: Visualizing the superconducting vortex lattice
-        in presence of disorder and magnetism" supervised by H. Suderow and I. Guillamón at the
-        <a
-          href="http://webs.fmc.uam.es/lbtuam.group/"
-          style="text-decoration: none"
+        <q-img
+          :src="require('@/imagenes/Tesis.png')"
+          style=" max-width: 30%; cursor:pointer"
+          class="center"
+          @click="goToTesis"
         >
-          Low Temperatures
-          Laboratory
-        </a>
-        of the Universidad Autonoma de Madrid.
-      </p>
+          <q-tooltip>Download manuscript</q-tooltip>
+        </q-img>
+        <p class="q-mt-xl">
+          {{ intro[1] }}
+          <a style="color:gray; cursor:pointer" @click="goToLab">{{ intro[2] }}</a>
+          {{ intro[3] }}
+        </p>
+      </section>
+
+      <!-- Thesis Project -->
       <section>
         <h4 class="q-mt-xl q-mb-md text-center text-weight-regular">Thesis project</h4>
       </section>
 
       <section>
         <h6 class="q-my-sm text-weight-regular">Introduction to superconductivity</h6>
-        <p>
-          More than 100 years after its discovery, superconductivity is still a very promising and current phenomena. Superconductors
-          materials have two main properties:
-        </p>
+        <p>{{ tesisIntro1 }}</p>
         <ul>
-          <li>Electric current flows through the material with zero electric resistance.</li>
-          <p />
-          <li>
-            In most of the superconductors (type-II), the magnetic field penetrates the material as quantized magnetic
-            fluxes called vortices. Inside the core of the vortex the material is in normal state. Usually, vortices form a
-            triangular lattice because they repeal each other. Depending on the internal defects of the material, the lattice
-            can be more or less distorted.
+          <li v-for="item in tesisIntro2" :key="item">
+            {{ item }}
+            <p />
           </li>
         </ul>
-
-        <p>Furthermore, superconducting state is only possible under some conditions of:</p>
-
+        <p>{{ tesisIntro3 }}</p>
         <div class="row text-center q-pb-md">
-          <div class="col-4">Temperature</div>
-          <div class="col-4">Magnetic field</div>
-          <div class="col-4">Electrical current</div>
+          <div class="col-4">{{ tesisIntro4[0] }}</div>
+          <div class="col-4">{{ tesisIntro4[1] }}</div>
+          <div class="col-4">{{ tesisIntro4[2] }}</div>
         </div>
-
-        <p>
-          If any of these quantities are above a critical value, the superconducting state dissapears and the material goes
-          to normal state.
-        </p>
+        <p>{{ tesisIntro5 }}</p>
       </section>
 
       <section>
         <h6 class="q-my-sm text-weight-regular">Challenges</h6>
         <p>
-          <strong class="text-weight-medium">There are already numerous applications</strong> as NMR machines
-          in hospitals, the levitating train of Japan, or a superconducting cable joining two high voltage stations in Essen (Germany).
-          But,
-          <strong
-            class="text-weight-medium"
-          >
-            to take fully advantage of superconductivity, increasing critical
-            temperature and electrical current is indispensable.
-          </strong>
+          <strong class="text-weight-medium">{{ challenges[0] }}</strong>
+          {{ challenges[1] }}
+          <strong class="text-weight-medium">{{ challenges[2] }}</strong>
         </p>
         <p>
-          <strong
-            class="text-weight-medium"
-          >To enhance critical temperature, is crucial to understand the origin of superconductivity.</strong> In conventional
-          superconductors, the origin is well understood using BCS theory but, usually, these materials have very low critical temperatures. On
-          the other hand,
-          <strong
-            class="text-weight-medium"
-          >
-            in high critical temperature superconductors (HCTS) the origin
-            remains unknown.
-          </strong> What we do know is that, as opposed
-          to conventional superconductors, superconductivity and magnetism are very related. Comprehending this relation is
-          fundamental to understand the origin of the superconductivity in HCTS.
+          <strong class="text-weight-medium">{{ challenges[3] }}</strong>
+          {{ challenges[4] }}
+          <strong class="text-weight-medium">{{ challenges[5] }}</strong>
+          {{ challenges[6] }}
         </p>
 
         <p>
-          <strong
-            class="text-weight-medium"
-          >The problem of increasing critical current is related to the superconducting vortices</strong>.
-          When an electrical current is applied, vortices move along the sample dissipating heat and this eventually
-          destroys superconductivity. Hence,
-          <strong
-            class="text-weight-medium"
-          >
-            to increase critical current is important to understand how the vortex
-            lattice is arranged
-          </strong> inside the material and to mantained them
-          as fixed as possible when the electric current flows.
+          <strong class="text-weight-medium">{{ challenges[7] }}</strong>
+          {{ challenges[8] }}
+          <strong class="text-weight-medium">{{ challenges[9] }}</strong>
+          {{ challenges[10] }}
         </p>
       </section>
 
       <div class="q-pa-md">
-        <div v-if="this.$q.platform.is.mobile">
-          <q-carousel
-            control-color="black"
-            animated
-            v-model="slide"
-            arrows
-            navigation
-            height="140px"
-            swipeable
-          >
-            <q-carousel-slide :name="1" :img-src="require('./Images/Meissner.jpg')">
-              <div class="absolute-bottom custom-caption">
-                <div
-                  class="text-subtitle1 text-center"
-                >Superconducting levitation due to the repulsion of magnetic field</div>
-              </div>
-            </q-carousel-slide>
+        <q-carousel
+          control-color="black"
+          animated
+          v-model="slide"
+          arrows
+          navigation
+          :height="alturaCarousel1()"
+          infinite
+          swipeable
+        >
+          <q-carousel-slide :name="1" :img-src="require('./Images/Meissner.jpg')">
+            <div class="absolute-bottom custom-caption">
+              <div class="text-subtitle1 text-center">{{ captions[0] }}</div>
+            </div>
+          </q-carousel-slide>
 
-            <q-carousel-slide :name="2" :img-src="require('./Images/atoms.jpg')">
-              <div class="absolute-bottom custom-caption">
-                <div class="text-subtitle1 text-center">
-                  Atomic resolution image in the left and superconducting
-                  vortices (yellow) in the right
-                </div>
-              </div>
-            </q-carousel-slide>
+          <q-carousel-slide :name="2" :img-src="require('./Images/atoms.jpg')">
+            <div class="absolute-bottom custom-caption">
+              <div class="text-subtitle1 text-center">{{ captions[1] }}</div>
+            </div>
+          </q-carousel-slide>
 
-            <q-carousel-slide :name="3" :img-src="require('./Images/STM.jpg')">
-              <div class="absolute-bottom custom-caption">
-                <div class="text-subtitle1 text-center">The scanning tunneling microscope I built</div>
-              </div>
-            </q-carousel-slide>
-          </q-carousel>
-        </div>
-
-        <div v-else>
-          <q-carousel
-            control-color="black"
-            animated
-            v-model="slide"
-            arrows
-            navigation
-            height="350px"
-          >
-            <q-carousel-slide :name="1" :img-src="require('./Images/Meissner.jpg')">
-              <div class="absolute-bottom custom-caption">
-                <div
-                  class="text-subtitle1 text-center"
-                >Superconducting levitation due to the repulsion of magnetic field</div>
-              </div>
-            </q-carousel-slide>
-
-            <q-carousel-slide :name="2" :img-src="require('./Images/atoms.jpg')">
-              <div class="absolute-bottom custom-caption">
-                <div class="text-subtitle1 text-center">
-                  Atomic resolution image in the left and superconducting
-                  vortices (yellow) in the right
-                </div>
-              </div>
-            </q-carousel-slide>
-
-            <q-carousel-slide :name="3" :img-src="require('./Images/STM.jpg')">
-              <div class="absolute-bottom custom-caption">
-                <div class="text-subtitle1 text-center">The scanning tunneling microscope I built</div>
-              </div>
-            </q-carousel-slide>
-          </q-carousel>
-        </div>
+          <q-carousel-slide :name="3" :img-src="require('./Images/STM.jpg')">
+            <div class="absolute-bottom custom-caption">
+              <div class="text-subtitle1 text-center">{{ captions[2] }}</div>
+            </div>
+          </q-carousel-slide>
+        </q-carousel>
       </div>
 
       <section>
         <h6 class="q-my-sm text-weight-regular">What I did</h6>
         <p>
-          During my thesis I focused on both problems.
-          <strong class="text-weight-medium">
-            I analyzed images of superconducting vortices of different materials
-            finding new lattice arrangements.
-          </strong> This findings could help to a better understanding of how vortices interact among them
-          and its media at differents magnetic fields.
-          <strong
-            class="text-weight-medium"
-          >
-            Futhermore, I measured a HCTS that was discovered
-            only two years ago.
-          </strong>
-          The most
-          important result that I found is how internal magnetism and superconductivity coexist with each other.
+          {{ whatIDid[0] }}
+          <strong class="text-weight-medium">{{ whatIDid[1] }}</strong>
+          {{ whatIDid[2] }}
+          <strong class="text-weight-medium">{{ whatIDid[3] }}</strong>
+          {{ whatIDid[4] }}
         </p>
       </section>
 
       <section>
         <h6 class="q-my-sm text-weight-regular">How I did it</h6>
         <p>
-          In order to obtain my results,
-          <strong class="text-weight-medium">
-            I developed a scanning tunneling microscope from scratch to perform at low temperatures
-            (~150 mK) and high magnetic
-            fields (~15 T)
-          </strong>. This microscope was invented in 1981 and allows us to obtain topographic images at the atomic level, as well as the
-          electronical properties of the material we are measuring. For example, we can obtain vortex images by measuring the electronic
-          properties locally. I designed and built the microscope and also help in the development of
-          the mechanical apparatus, electronics and computer comunications required to perform the experiments.
+          {{ howIDidIt[0] }}
+          <strong class="text-weight-medium">{{ howIDidIt[1] }}</strong>
+          {{ howIDidIt[2] }}
         </p>
         <p>
-          <strong
-            class="text-weight-medium"
-          >Another very important part of my thesis was the data analysis.</strong>
-          With the microscope, I obtained files of several Gb per
-          measurement. Thus, in order to do faster analysis, I developed a software in Matlab. We
-          are able to open, manage and clean raw data from the microscope in seconds/minutes.
-          Most of the funcionalities are for image analysis, For example:
+          <strong class="text-weight-medium">{{ howIDidIt[3] }}</strong>
+          {{ howIDidIt[4] }}
         </p>
         <ul>
-          <li>
-            2D-Fast fourier transformations and filteringsli>
+          <li v-for="item in howList" :key="item">
+            {{ item }}
             <p />
           </li>
-          <li>Automatic vortex detection in images</li>
-          <p />
-          <li>Analysis of vortex movement in movies</li>
-          <p />
-          <li>Fractal analysis</li>
-          <p />
-          <li>Hyperuniform detection in real and reciprocal space</li>
-          <p />
         </ul>
       </section>
 
       <div class="q-pa-md">
-        <div v-if="this.$q.platform.is.mobile">
-          <q-carousel
-            control-color="black"
-            animated
-            v-model="slide"
-            arrows
-            navigation
-            height="250px"
-            swipeable
-          >
-            <q-carousel-slide :name="1" :img-src="require('./Images/ThesisPresentation.jpg')" />
-
-            <q-carousel-slide :name="3" :img-src="require('./Images/PosterPresent.jpg')" />
-            <q-carousel-slide :name="4" :img-src="require('./Images/Suffering.jpg')" />
-          </q-carousel>
-        </div>
-        <div v-else>
-          <q-carousel
-            control-color="black"
-            animated
-            v-model="slide"
-            arrows
-            navigation
-            height="500px"
-          >
-            <q-carousel-slide :name="1" :img-src="require('./Images/ThesisPresentation.jpg')" />
-
-            <q-carousel-slide :name="3" :img-src="require('./Images/PosterPresent.jpg')" />
-            <q-carousel-slide :name="4" :img-src="require('./Images/Suffering.jpg')" />
-          </q-carousel>
-        </div>
+        <q-carousel
+          control-color="black"
+          animated
+          v-model="slide"
+          arrows
+          navigation
+          :height="alturaCarousel2()"
+          infinite
+          swipeable
+        >
+          <q-carousel-slide :name="1" :img-src="require('./Images/ThesisPresentation.jpg')" />
+          <q-carousel-slide :name="3" :img-src="require('./Images/PosterPresent.jpg')" />
+          <q-carousel-slide :name="4" :img-src="require('./Images/Suffering.jpg')" />
+        </q-carousel>
       </div>
+
+      <!-- Publications -->
       <section>
         <h4>Publications</h4>
         <ul class="q-pa-none q-my-none" style="list-style-type:none; text-align: justify;">
-          <li>
+          <li v-for="paper in papers" :key="paper.title">
+            <p class="text-weight-medium q-mb-none">{{ paper.title }}</p>
+            <p class="text-grey-9 text-weight-regular q-mb-none">{{ paper.autores }}</p>
             <p
-              class="text-weight-medium q-mb-none"
-            >Superconducting density of states and vortex lattice in the spin-vortex state of Ni-doped</p>
-            <p class="text-grey-9 text-weight-regular q-mb-none">
-              J. Benito-Llorens
-              , E.Herrera, V.Barrena, H.Suderow,
-              I.Guillamón, W.R. Meier, S. Bud’ko, P.C. Canfield, V Borisov and R.Valentí
-            </p>
-            <p class="text-weight-regular text-center">In preparation, (2020)</p>
+              class="text-weight-regular text-center"
+              :style="styleLinks(paper.link)"
+              @click="goToPublications(paper.link)"
+            >{{ paper.publication }}</p>
           </li>
-          <li>
-            <p
-              class="text-weight-medium q-mb-none"
-            >Superconductivity in a disordered metal with Coulomb interactions</p>
-            <p class="text-grey-9 text-weight-regular q-mb-none">
-              Svetlana V. Postolova, Alexey Yu. Mironov, Víctor Barrena,
-              Jose Benito-Llorens,Jose Gabriel Rodrigo, Hermann Suderow, Mikhail R. Baklanov, Tatyana I. Baturina, and Valerii M. Vinokur
-            </p>
-            <p class="text-weight-regular text-center">Accepted in Phys. Rev. Research, (2020)</p>
-          </li>
-          <p class="q-mb-lg" />
-          <li>
-            <p
-              class="text-weight-medium q-mb-none"
-            >Disordered hyperuniformity in superconducting vortex lattices</p>
-            <p class="text-grey-9 text-weight-regular q-mb-none">
-              J. Benito-Llorens
-              , R. Córdoba, J.M. De Teresa, R. Ibarra, S. Vieira, I.
-              Guillamón, M. Ortuño, and H. Suderow
-            </p>
-            <p class="text-weight-regular text-center">
-              <a
-                href="https://journals.aps.org/prresearch/abstract/10.1103/PhysRevResearch.2.013329"
-                style="text-decoration: none"
-              >Phys. Rev. Research 2, 013329, (2020)</a>
-            </p>
-          </li>
-          <p class="q-mb-lg" />
-          <li>
-            <p
-              class="text-weight-medium q-mb-none"
-            >Observation of a gel of quantum vortices in a superconductor at very low magnetic fields</p>
-            <p class="text-grey-9 text-weight-regular q-mb-none">
-              J. Benito-Llorens
-              , Lior Embon, Alexandre Correa, Jesés David González,
-              Edwin Herrera, Isabel Guillamón, Roberto F. Luccas, Jon Azpeitia, Federico
-              J. Mompeán, Mar García-Hernández, Carmen Munuera, Jazmín Aragón
-              Sánchez, Yanina Fasano, Milorad V. Milosevic, Hermann Suderow, Yonathan
-              Anahory
-            </p>
-            <p class="text-weight-regular text-center">
-              <a
-                href="https://journals.aps.org/prresearch/abstract/10.1103/PhysRevResearch.2.013329"
-                style="text-decoration: none"
-              >Phys. Rev. Research 2, 013329, (2020)</a>
-            </p>
-          </li>
-          <p class="q-mb-lg" />
-          <li>
-            <p
-              class="text-weight-medium q-mb-none"
-            >Thermal creep induced by cooling a superconducting vortex lattice</p>
-            <p class="text-grey-9 text-weight-regular q-mb-none">
-              R. Willa and J.A. Galvis,
-              J. Benito-Llorens, E. Herrera, I. Guillamon
-              and H. Suderow
-            </p>
-            <p class="text-weight-regular text-center">
-              <a
-                href="https://journals.aps.org/prresearch/abstract/10.1103/PhysRevResearch.2.013125"
-                style="text-decoration: none"
-              >Phys. Rev. Research 2, 013125 (2020)</a>
-            </p>
-          </li>
+
           <p class="q-mb-lg" />
 
           <li>
             <p class="text-weight-medium q-mb-none">
-              Vortex creep at very low temperatures in single crystals of the extreme type-II superconductor
-              Rh<sub>9</sub>In<sub>4</sub>S<sub>4</sub></p>
-              <p class="text-grey-9 text-weight-regular q-mb-none">
-              E. Herrera-Vasco,
-              J. Benito-Llorens, Udhara S. Kaluarachchi, S.L.
-              Bud’ko, P. C. Canfield, I. Guillamón, H. Suderow
+              {{ ultimoPaper.title }} Rh
+              <sub>9</sub>In
+              <sub>4</sub>S
+              <sub>4</sub>
             </p>
-            <p class="text-weight-regular text-center">
-              <a
-                href="https://journals.aps.org/prb/abstract/10.1103/PhysRevB.95.134505"
-                style="text-decoration: none"
-              >Phys. Rev. B 95, 134505 (2017)</a>
-            </p>
+            <p class="text-grey-9 text-weight-regular q-mb-none">{{ ultimoPaper.autores }}</p>
+            <p
+              class="text-weight-regular text-center"
+              style="color:gray; cursor:pointer"
+              @click="goToPublications(ultimoPaper.link)"
+            >{{ ultimoPaper.publication }}</p>
           </li>
         </ul>
         <p class="q-mb-lg" />
@@ -373,12 +181,37 @@
 </template>
 
 <script>
+import links from "../links";
+import texts from "./texts";
+
 export default {
   name: "personal",
+  mixins: [links, texts],
   data() {
     return {
       slide: 1,
     };
+  },
+  methods: {
+    alturaCarousel1() {
+      return this.$q.platform.is.mobile ? "140px" : "350px";
+    },
+    alturaCarousel2() {
+      return this.$q.platform.is.mobile ? "250px" : "500px";
+    },
+    goToTesis() {
+      window.open(this.tesisLink);
+    },
+    goToLab() {
+      window.open(this.labLink);
+    },
+    goToPublications(link) {
+      if (link) window.open(link);
+    },
+    styleLinks(link) {
+      if (link) return "color:gray; cursor:pointer";
+      else return "color:black";
+    },
   },
 };
 </script>

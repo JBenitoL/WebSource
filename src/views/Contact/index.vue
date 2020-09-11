@@ -1,6 +1,6 @@
 <template>
   <div v-if="this.$q.platform.is.mobile">
-    <ContactViewMob />
+    <ContactView />
   </div>
 
   <div v-else>
@@ -16,11 +16,13 @@
 
 <script>
 import ContactView from "./view.vue";
-import ContactViewMob from "./viewMob.vue";
 
 export default {
   name: "contact",
-  components: { ContactView, ContactViewMob },
+  components: { ContactView },
+  mounted() {
+    window.scrollTo(0, 0);
+  },
 };
 </script>
 

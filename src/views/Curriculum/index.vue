@@ -1,19 +1,23 @@
 <template>
   <div v-if="this.$q.platform.is.mobile">
-    <CVMobView />
+    <CvViewMob />
   </div>
 
   <div v-else>
-    <CVView />
+    <CvView />
   </div>
 </template>
 
 <script>
-import CVView from "./view.vue";
-import CVMobView from "./viewMob.vue";
+import CvView from "./view.vue";
+import CvViewMob from "./viewMob.vue";
+
 export default {
   name: "curriculum",
-  components: { CVView, CVMobView },
+  components: { CvView, CvViewMob },
+  mounted() {
+    window.scrollTo(0, 0);
+  },
 };
 </script>
 

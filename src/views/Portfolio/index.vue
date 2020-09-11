@@ -11,9 +11,13 @@
 <script>
 import ResearchView from "./view.vue";
 import ResearchViewMob from "./viewMob.vue";
+
 export default {
   name: "portfolio",
   components: { ResearchView, ResearchViewMob },
+  mounted() {
+    window.scrollTo(0, 0);
+  },
 };
 </script>
 
